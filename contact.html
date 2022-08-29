@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bootrap practice</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx"
+      crossorigin="anonymous"
+    />
+  </head>
+
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light" id="dark-theme">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="index.html">Tusif Hassan Rizvi</a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-auto">
+            <li class="nav-item px-3">
+              <a class="nav-link active" aria-current="page" href="index.html"
+                >About</a
+              >
+            </li>
+            <li class="nav-item px-3">
+              <a class="nav-link" href="skill.html">Skills</a>
+            </li>
+            <li class="nav-item px-3">
+              <a class="nav-link" href="contact.html">Contact</a>
+            </li>
+          </ul>
+          <div class="form-check form-switch">
+            <input
+              class="form-check-input"
+              type="checkbox"
+              role="switch"
+              id="flexSwitchCheckDefault"
+            />
+            <label
+              class="form-check-label"
+              for="flexSwitchCheckDefault"
+              id="label-text"
+              >Light Theme</label
+            >
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <div class="" style="width: max-100vw; height: 93vh" id="main-body">
+      <div class="container pt-5">
+        <form id="submit-data" onsubmit="sendMail(); reset(); return false;">
+          <div class="mb-3">
+            <label for="exampleInputName" class="form-label">Your Name</label>
+            <input
+              type="text"
+              class="form-control"
+              id="exampleInputName"
+              aria-describedby="emailHelp"
+            />
+          </div>
+          <div class="mb-3">
+            <label for="exampleInputEmail" class="form-label"
+              >Email address</label
+            >
+            <input
+              type="email"
+              class="form-control"
+              id="exampleInputEmail"
+              aria-describedby="emailHelp"
+            />
+          </div>
+          <div class="mb-3">
+            <label for="exampleInputNumber" class="form-label"
+              >Contact Number</label
+            >
+            <input type="text" class="form-control" id="exampleInputNumber" />
+          </div>
+          <label for="exampleInputMessage" class="mb-2"
+            >Write your message here</label
+          >
+          <div class="form-floating mb-3">
+            <textarea
+              class="form-control"
+              placeholder="Leave a comment here"
+              id="exampleInputMessage"
+              style="height: 100px"
+            ></textarea>
+          </div>
+          <button id="btn-submit" type="submit" class="btn btn-primary">
+            Submit
+          </button>
+        </form>
+      </div>
+    </div>
+  </body>
+  <script
+    src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa"
+    crossorigin="anonymous"
+  ></script>
+  <script src="script.js"></script>
+  <script src="https://smtpjs.com/v3/smtp.js"></script>
+
+  <script>
+    let username = document.getElementById("exampleInputName");
+    let useremail = document.getElementById("exampleInputEmail");
+    let usernumber = document.getElementById("exampleInputNumber");
+    let usermessage = document.getElementById("exampleInputMessage");
+    function sendMail() {
+      Email.send({
+        Host: "smtp.elasticemail.com",
+        Username: "ksdjsdkf",
+        Password: "klsdfjsd",
+        To: "sldkdkfj",
+        From: useremail.value,
+        Subject: "User Detail",
+        Body: `User Name is ${username.value} User Email is ${useremail.value} User Contact number is ${usernumber.value} User Message is ${usermessage.value}`,
+      }).then((message) => alert(message));
+    }
+  </script>
+</html>
